@@ -1,0 +1,442 @@
+/* =========================================
+   CALENDAR DATE STRIP
+========================================= */
+
+.calendar-strip {
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e9f0;
+    border-radius: 18px;
+
+    padding: 18px 20px;
+
+    margin: 20px 0;
+
+    box-shadow: 0 8px 25px rgba(37, 32, 74, 0.06);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.calendar-strip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+.calendar-label {
+    margin: 0 0 4px;
+
+    color: #6c4ceb;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.calendar-strip-header h2 {
+    margin: 0;
+
+    color: #17233c;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   NAVIGATION BUTTONS
+========================================= */
+
+.calendar-navigation {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.calendar-navigation button {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e9f0;
+    border-radius: 9px;
+
+    color: #17233c;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.calendar-navigation button:hover {
+    background: #6c4ceb;
+
+    border-color: #6c4ceb;
+
+    color: #ffffff;
+}
+
+
+/* =========================================
+   HORIZONTAL DATE SCROLL
+========================================= */
+
+.date-scroll {
+    width: 100%;
+
+    display: flex;
+
+    gap: 8px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+
+    padding: 2px 0 7px;
+
+    scrollbar-width: none;
+}
+
+
+.date-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================================
+   DATE CARD
+========================================= */
+
+.date-card {
+    /*
+        7 cards visible:
+        6 gaps × 8px = 48px
+
+        Remaining width is divided by 7
+    */
+
+    flex: 0 0 calc((100% - 48px) / 7);
+
+    min-width: 65px;
+
+    height: 75px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 4px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7e9f0;
+    border-radius: 12px;
+
+    color: #17233c;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.date-card:hover {
+    border-color: #6c4ceb;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   DAY NAME
+========================================= */
+
+.day-name {
+    color: #718096;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   DATE NUMBER
+========================================= */
+
+.date-number {
+    color: inherit;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TODAY
+========================================= */
+
+.date-card.today {
+    border-color: #6c4ceb;
+
+    background: #f4f1ff;
+}
+
+
+/* =========================================
+   SELECTED DATE
+========================================= */
+
+.date-card.selected {
+    background: #6c4ceb;
+
+    border-color: #6c4ceb;
+
+    color: #ffffff;
+
+    box-shadow: 0 5px 14px rgba(108, 76, 235, 0.25);
+}
+
+
+.date-card.selected .day-name {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* =========================================
+   NUMBER OF TASKS
+========================================= */
+
+.date-task-count {
+    position: absolute;
+
+    top: 5px;
+    right: 5px;
+
+    min-width: 17px;
+    height: 17px;
+
+    padding: 0 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ef6a8a;
+
+    border-radius: 20px;
+
+    color: #ffffff;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   SELECTED DATE INFO
+========================================= */
+
+.selected-date-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 8px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #e7e9f0;
+}
+
+
+.selected-date-info span {
+    color: #17233c;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.selected-date-info small {
+    color: #718096;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+[data-theme="dark"] .calendar-strip {
+    background: #171923;
+
+    border-color: #2d3140;
+}
+
+
+[data-theme="dark"] .calendar-strip-header h2 {
+    color: #f7fafc;
+}
+
+
+[data-theme="dark"] .calendar-navigation button {
+    background: #20232f;
+
+    border-color: #343849;
+
+    color: #f7fafc;
+}
+
+
+[data-theme="dark"] .calendar-navigation button:hover {
+    background: #6c4ceb;
+
+    border-color: #6c4ceb;
+}
+
+
+[data-theme="dark"] .date-card {
+    background: #20232f;
+
+    border-color: #343849;
+
+    color: #f7fafc;
+}
+
+
+[data-theme="dark"] .date-card.today {
+    background: rgba(108, 76, 235, 0.15);
+
+    border-color: #8067ed;
+}
+
+
+[data-theme="dark"] .date-card.selected {
+    background: #6c4ceb;
+
+    border-color: #6c4ceb;
+}
+
+
+[data-theme="dark"] .selected-date-info {
+    border-color: #343849;
+}
+
+
+[data-theme="dark"] .selected-date-info span {
+    color: #f7fafc;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .date-card {
+        flex: 0 0 75px;
+
+        min-width: 75px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .calendar-strip {
+        padding: 14px;
+
+        margin: 15px 0;
+
+        border-radius: 15px;
+    }
+
+
+    .calendar-strip-header {
+        margin-bottom: 12px;
+    }
+
+
+    .calendar-strip-header h2 {
+        font-size: 16px;
+    }
+
+
+    .calendar-navigation button {
+        width: 31px;
+        height: 31px;
+    }
+
+
+    .date-scroll {
+        gap: 7px;
+    }
+
+
+    .date-card {
+        flex: 0 0 58px;
+
+        min-width: 58px;
+
+        height: 68px;
+
+        border-radius: 10px;
+    }
+
+
+    .day-name {
+        font-size: 9px;
+    }
+
+
+    .date-number {
+        font-size: 17px;
+    }
+
+
+    .selected-date-info span {
+        font-size: 12px;
+    }
+
+}
