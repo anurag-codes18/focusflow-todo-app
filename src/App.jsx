@@ -183,7 +183,7 @@ function Dashboard({ user, onLogout }) {
     return `${year}-${month}-${day}`;
 
   };
-  
+
   const visible = useMemo(() => {
 
   const selectedDateString = formatSelectedDate(selectedDate);
@@ -509,15 +509,10 @@ function Dashboard({ user, onLogout }) {
         <Topbar
 
           user={user}
-
           theme={theme}
-
           setTheme={setTheme}
-
-          requestNotifications={
-            requestNotifications
-          }
-
+          requestNotifications={requestNotifications}
+          onLogout={onLogout}
         />
 
 
